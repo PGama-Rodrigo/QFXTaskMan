@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{3832C352-09D4-440A-A0E5-448B2591461D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QFXTaskMan.Core", "src\QFXTaskMan.Core\QFXTaskMan.Core.csproj", "{B5F5CEBA-F4B7-4CDF-A927-6AA7B284330F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QFXTaskMan.Infrastructure", "src\QFXTaskMan.Infrastructure\QFXTaskMan.Infrastructure.csproj", "{F1B5CD96-21C4-4138-B313-896FBA80AD0B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QFXTaskMan.WebApi", "src\QFXTaskMan.WebApi\QFXTaskMan.WebApi.csproj", "{E9322F4B-E255-4481-A83B-C27BB3FD2983}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5F5CEBA-F4B7-4CDF-A927-6AA7B284330F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5F5CEBA-F4B7-4CDF-A927-6AA7B284330F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5F5CEBA-F4B7-4CDF-A927-6AA7B284330F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5F5CEBA-F4B7-4CDF-A927-6AA7B284330F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1B5CD96-21C4-4138-B313-896FBA80AD0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1B5CD96-21C4-4138-B313-896FBA80AD0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1B5CD96-21C4-4138-B313-896FBA80AD0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1B5CD96-21C4-4138-B313-896FBA80AD0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CADEC19-9ABE-400F-B198-7074C5B4F0F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CADEC19-9ABE-400F-B198-7074C5B4F0F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CADEC19-9ABE-400F-B198-7074C5B4F0F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CADEC19-9ABE-400F-B198-7074C5B4F0F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{938D3514-2266-41EF-92EC-D2B1C0364841}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{938D3514-2266-41EF-92EC-D2B1C0364841}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{938D3514-2266-41EF-92EC-D2B1C0364841}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{938D3514-2266-41EF-92EC-D2B1C0364841}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9322F4B-E255-4481-A83B-C27BB3FD2983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9322F4B-E255-4481-A83B-C27BB3FD2983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9322F4B-E255-4481-A83B-C27BB3FD2983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9322F4B-E255-4481-A83B-C27BB3FD2983}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B5F5CEBA-F4B7-4CDF-A927-6AA7B284330F} = {3832C352-09D4-440A-A0E5-448B2591461D}
+		{F1B5CD96-21C4-4138-B313-896FBA80AD0B} = {3832C352-09D4-440A-A0E5-448B2591461D}
+		{E9322F4B-E255-4481-A83B-C27BB3FD2983} = {3832C352-09D4-440A-A0E5-448B2591461D}
+	EndGlobalSection
+EndGlobal
