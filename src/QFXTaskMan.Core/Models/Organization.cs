@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace QFXTaskMan.Core.Models;
 
 public sealed class Organization : BaseClass
@@ -14,7 +16,8 @@ public sealed class Organization : BaseClass
         OwnerId = ownerId;
     }
 
-    public required string Name { get; set; } = string.Empty;
+    [Required(ErrorMessage = "{0} is required"), MaxLength(100, ErrorMessage = "{0} cannot be longer than 100 characters")]
+    public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
 
     // Foreign keys

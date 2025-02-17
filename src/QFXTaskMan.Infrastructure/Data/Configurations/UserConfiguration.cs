@@ -14,17 +14,6 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         b.HasKey(u => u.Id);
 
         // Properties
-        b.Property(u => u.Email)
-            .IsRequired()
-            .HasMaxLength(256);
-
-        b.Property(u => u.Name)
-            .IsRequired()
-            .HasMaxLength(100);
-
-        b.Property(u => u.PasswordHash)
-            .IsRequired();
-
         b.Property(u => u.Logs)
             .HasColumnType("nvarchar(max)");
 
@@ -36,6 +25,9 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         // Indexes
         b.HasIndex(u => u.Email)
+            .IsUnique();
+
+        b.HasIndex(u => u.Username)
             .IsUnique();
     }
 }

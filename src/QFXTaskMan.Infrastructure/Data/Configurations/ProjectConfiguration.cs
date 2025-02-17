@@ -14,14 +14,7 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
         b.HasKey(p => p.Id);
 
         // Properties
-        b.Property(p => p.Name)
-            .IsRequired()
-            .HasMaxLength(200);
-
-        b.Property(p => p.Description)
-            .HasMaxLength(1000);
-
-        b.Property(p => p.Logs)
+        b.Property(u => u.Logs)
             .HasColumnType("nvarchar(max)");
 
         // Relationships
