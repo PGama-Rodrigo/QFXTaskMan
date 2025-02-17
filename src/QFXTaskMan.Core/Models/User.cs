@@ -32,5 +32,6 @@ public sealed class User : BaseClass
 
     public ICollection<Project>? OwnedProjects { get; set; }
     public ICollection<TaskUser>? AssignedTasks { get; set; }
+    public ICollection<Organization> OwnedOrganizations { get; set; }
     public required ICollection<OrganizationUser> Organizations { get; set; }
 }

@@ -23,6 +23,16 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
             .HasForeignKey(p => p.OwnerId)
             .OnDelete(DeleteBehavior.Restrict);
 
+        b.HasMany(u => u.OwnedOrganizations)
+            .WithOne(o => o.Owner)
+            .HasForeignKey(o => o.OwnerId)
+            .OnDelete(DeleteBehavior.Restrict);
+
+        b.HasMany(u => u.Organizations)
+            .WithOne(ou => ou.User)
+            .HasForeignKey(ou => ou.UserId)
+            .OnDelete(DeleteBehavior.Restrict);
+
         // Indexes
         b.HasIndex(u => u.Email)
             .IsUnique();

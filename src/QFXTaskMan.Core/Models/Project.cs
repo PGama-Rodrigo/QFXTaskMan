@@ -21,8 +21,10 @@ public sealed class Project : BaseClass
     
     // Foreign keys
     public Guid OwnerId { get; set; }
+    public Guid OrganizationId { get; set; }
     
     // Navigation properties
+    public required Organization Organization { get; set; }
     public required User Owner { get; set; }
     public ICollection<Task>? Tasks { get; set; }
 }
