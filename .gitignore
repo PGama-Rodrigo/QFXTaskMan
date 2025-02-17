@@ -1,0 +1,48 @@
+## .NET specific
+bin/
+obj/
+.vs/
+*.user
+*.userosscache
+*.suo
+*.cache
+*.nupkg
+*.dbmdl
+*.jfm
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+
+## Visual Studio cache/options directory
+.vs/
+.vscode/
+
+## Visual Studio 2015/2017 cache/options directory
+.vs2015/
+.vs2017/
+
+## MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+## ReSharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+## SQL Server files
+*.mdf
+*.ldf
+*.ndf
+
+## Logs
+*.log
