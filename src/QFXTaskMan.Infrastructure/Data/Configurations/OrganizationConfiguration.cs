@@ -6,24 +6,19 @@ namespace QFXTaskMan.Infrastructure.Data.Configurations;
 
 public sealed class OrganizationConfiguration : IEntityTypeConfiguration<Organization>
 {
-    public void Configure(EntityTypeBuilder<Organization> builder)
+    public void Configure(EntityTypeBuilder<Organization> b)
     {
-        builder.ToTable("Organizations");
+        b.ToTable("Organizations");
 
         // Primary key
-        builder.HasKey(o => o.Id);
+        b.HasKey(o => o.Id);
 
         // Properties
-        builder.Property(o => o.Logs)
+        b.Property(o => o.Logs)
             .HasColumnType("nvarchar(max)");
 
         // Relationships
-        builder.HasOne(o => o.Owner)
-            .WithMany(u => u.OwnedOrganizations)
-            .HasForeignKey(o => o.OwnerId)
-            .OnDelete(DeleteBehavior.Restrict);
-
-        builder.HasMany(o => o.Projects)
+        b.HasMany(o => o.Projects)
             .WithOne(u => u.Organization)
             .HasForeignKey(o => o.OrganizationId)
             .OnDelete(DeleteBehavior.Restrict);

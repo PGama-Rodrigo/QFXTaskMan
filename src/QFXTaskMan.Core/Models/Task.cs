@@ -3,7 +3,7 @@ using QFXTaskMan.Core.Enumerables;
 
 namespace QFXTaskMan.Core.Models;
 
-public class Task : BaseClass
+public sealed class Task : BaseClass
 {
     public Guid? ParentId { get; set; }
 
@@ -16,10 +16,10 @@ public class Task : BaseClass
     
     // Foreign keys
     public Guid ProjectId { get; set; }
-    public Guid AssignedToId { get; set; }
     
     // Navigation properties
     public required Project Project { get; set; }
+    public Task? Parent { get; set; }
     public ICollection<Task>? DetailTasks { get; set; }
     public ICollection<TaskUser>? TaskMembers { get; set; }
 

@@ -28,10 +28,8 @@ public sealed class User : BaseClass
     
     [Required(ErrorMessage = "{0} is required"), MinLength(8, ErrorMessage = "{0} must be at least 8 characters long"), RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$", ErrorMessage = "{0} must contain at least one uppercase letter, one lowercase letter, and one number")]
     public string PasswordHash { get; set; } = "";
-    public List<string> Roles { get; set; } = [];
 
     public ICollection<Project>? OwnedProjects { get; set; }
     public ICollection<TaskUser>? AssignedTasks { get; set; }
-    public ICollection<Organization> OwnedOrganizations { get; set; }
-    public required ICollection<OrganizationUser> Organizations { get; set; }
+    public ICollection<OrganizationUser> Organizations { get; set; }
 }
