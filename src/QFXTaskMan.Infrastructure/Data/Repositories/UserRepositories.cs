@@ -5,7 +5,7 @@ using QFXTaskMan.Infrastructure.Data.Context;
 
 namespace QFXTaskMan.Infrastructure.Data.Repositories;
 
-public class UserRepository : IUserRepository
+public sealed class UserRepository : IUserRepository
 {
     private readonly ApplicationDbContext _context;
 
@@ -64,9 +64,9 @@ public class UserRepository : IUserRepository
 
     public async Task<IEnumerable<User>> GetByTaskAsync(Guid taskId)
     {
-        return await _context.TasksUsers
+        return await _context.ChoresUsers
             .Where(tu => !tu.User.Deleted)  // Check both relations
-            .Where(tu => tu.TaskId == taskId)
+            .Where(tu => tu.ChoreId == taskId)
             .Select(tu => tu.User)
             .ToListAsync();
     }

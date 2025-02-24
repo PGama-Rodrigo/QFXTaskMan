@@ -13,10 +13,10 @@ public sealed class Project : BaseClass
     }
 
     [Required(ErrorMessage = "{0} is required"), MaxLength(200, ErrorMessage = "{0} cannot be longer than 200 characters")]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "{0} is required"), MaxLength(1000, ErrorMessage = "{0} cannot be longer than 1000 characters")]
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
     public DateTime? DueDate { get; set; }
     
     // Foreign keys
@@ -26,5 +26,5 @@ public sealed class Project : BaseClass
     // Navigation properties
     public required Organization Organization { get; set; }
     public required User Owner { get; set; }
-    public ICollection<Task>? Tasks { get; set; }
+    public ICollection<Chore>? Chores { get; set; }
 }

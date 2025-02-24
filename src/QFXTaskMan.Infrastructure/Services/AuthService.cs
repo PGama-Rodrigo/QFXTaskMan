@@ -19,19 +19,19 @@ public sealed class AuthService : IAuthService
         _configuration = configuration;
     }
 
-    public string Authenticate(string username, string password)
+    public string Authenticate(string email, string password)
     {
-        var user = _users.FirstOrDefault(x => x.Username == username);
+        var user = _users.FirstOrDefault(x => x.Email == email);
         
         if (user == null || !VerifyPasswordHash(password, user.PasswordHash))
-            throw new Exception("Username or password is incorrect.");
+            throw new Exception("Email or password is incorrect.");
 
         return GenerateJwtToken(user);
     }
 
     public User Register(User user, string password)
     {
-        if (_users.Any(x => x.Username == user.Username))
+        if (_users.Any(x => x.Email == user.Email))
             throw new Exception("Username already exists");
 
         user.PasswordHash = HashPassword(password);
@@ -48,7 +48,7 @@ public sealed class AuthService : IAuthService
         {
             Subject = new ClaimsIdentity(new[]
             {
-                new Claim(ClaimTypes.Name, user.Username),
+                new Claim(ClaimTypes.Name, user.Email),
                 new Claim(ClaimTypes.Email, user.Email)
             }),
             Expires = DateTime.UtcNow.AddDays(7),

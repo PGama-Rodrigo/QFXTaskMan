@@ -11,7 +11,7 @@ namespace QFXTaskMan.Core.Enumerables;
 /// <item>Critical: The highest priority of a task.</item>
 /// </list>
 /// </remarks>
-public enum TaskPriority : byte
+public enum ChorePriority : byte
 {
     Low = 1,
     Medium = 2,
@@ -32,7 +32,7 @@ public enum TaskPriority : byte
 /// <item>Canceled: The task is canceled.</item>
 /// </list>
 /// </remarks>
-public enum TaskStatus : byte
+public enum ChoreStatus : byte
 {
     ToDo = 1,    
     PreReview = 2,

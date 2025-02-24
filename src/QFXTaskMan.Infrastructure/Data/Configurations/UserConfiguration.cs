@@ -4,7 +4,7 @@ using QFXTaskMan.Core.Models;
 
 namespace QFXTaskMan.Infrastructure.Data.Configurations;
 
-public class UserConfiguration : IEntityTypeConfiguration<User>
+public sealed class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> b)
     {
@@ -30,9 +30,6 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         // Indexes
         b.HasIndex(u => u.Email)
-            .IsUnique();
-
-        b.HasIndex(u => u.Username)
             .IsUnique();
     }
 }

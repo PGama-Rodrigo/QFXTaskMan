@@ -4,23 +4,23 @@ using QFXTaskMan.Core.Models;
 
 namespace QFXTaskMan.Infrastructure.Data.Configurations;
 
-public class TaskUserConfiguration : IEntityTypeConfiguration<TaskUser>
+public sealed class ChoreUserConfiguration : IEntityTypeConfiguration<ChoreUser>
 {
-    public void Configure(EntityTypeBuilder<TaskUser> b)
+    public void Configure(EntityTypeBuilder<ChoreUser> b)
     {
         b.ToTable("TasksUsers");
 
         // Primary key
-        b.HasKey(tu => new { tu.TaskId, tu.UserId });
+        b.HasKey(tu => new { tu.ChoreId, tu.UserId });
 
         // Relationships
-        b.HasOne(tu => tu.Task)
-            .WithMany(t => t.TaskMembers)
-            .HasForeignKey(tu => tu.TaskId)
+        b.HasOne(tu => tu.Chore)
+            .WithMany(t => t.ChoreMembers)
+            .HasForeignKey(tu => tu.ChoreId)
             .OnDelete(DeleteBehavior.Cascade);
 
         b.HasOne(tu => tu.User)
-            .WithMany(u => u.AssignedTasks)
+            .WithMany(u => u.AssignedChores)
             .HasForeignKey(tu => tu.UserId)
             .OnDelete(DeleteBehavior.Cascade);
     }

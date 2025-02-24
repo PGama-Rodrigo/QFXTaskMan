@@ -1,11 +1,12 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using QFXTaskMan.Core.Models;
 
 namespace QFXTaskMan.Infrastructure.Data.Configurations;
 
-public class TaskConfiguration : IEntityTypeConfiguration<Core.Models.Task>
+public sealed class ChoreConfiguration : IEntityTypeConfiguration<Chore>
 {
-    public void Configure(EntityTypeBuilder<Core.Models.Task> b)
+    public void Configure(EntityTypeBuilder<Chore> b)
     {
         b.ToTable("Tasks");
 
@@ -18,13 +19,13 @@ public class TaskConfiguration : IEntityTypeConfiguration<Core.Models.Task>
 
         // Relationships
         b.HasOne(t => t.Project)
-            .WithMany(p => p.Tasks)
+            .WithMany(p => p.Chores)
             .HasForeignKey(t => t.ProjectId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        b.HasMany(t => t.TaskMembers)
-            .WithOne(tu => tu.Task)
-            .HasForeignKey(tu => tu.TaskId)
+        b.HasMany(t => t.ChoreMembers)
+            .WithOne(tu => tu.Chore)
+            .HasForeignKey(tu => tu.ChoreId)
             .OnDelete(DeleteBehavior.Cascade);
 
         b.HasOne(t => t.Parent)

@@ -4,7 +4,7 @@ using QFXTaskMan.Core.Models;
 
 namespace QFXTaskMan.Infrastructure.Data.Configurations;
 
-public class OrganizationUserConfiguration : IEntityTypeConfiguration<OrganizationUser>
+public sealed class OrganizationUserConfiguration : IEntityTypeConfiguration<OrganizationUser>
 {
     public void Configure(EntityTypeBuilder<OrganizationUser> b)
     {

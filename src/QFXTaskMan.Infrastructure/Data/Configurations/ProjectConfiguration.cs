@@ -4,7 +4,7 @@ using QFXTaskMan.Core.Models;
 
 namespace QFXTaskMan.Infrastructure.Data.Configurations;
 
-public class ProjectConfiguration : IEntityTypeConfiguration<Project>
+public sealed class ProjectConfiguration : IEntityTypeConfiguration<Project>
 {
     public void Configure(EntityTypeBuilder<Project> b)
     {
@@ -28,7 +28,7 @@ public class ProjectConfiguration : IEntityTypeConfiguration<Project>
             .HasForeignKey(p => p.OrganizationId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        b.HasMany(p => p.Tasks)
+        b.HasMany(p => p.Chores)
             .WithOne(t => t.Project)
             .HasForeignKey(t => t.ProjectId)
             .OnDelete(DeleteBehavior.Restrict);

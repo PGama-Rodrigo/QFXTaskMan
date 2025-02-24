@@ -1,5 +1,3 @@
-using QFXTaskMan.Core.Models;
-
 namespace QFXTaskMan.Core.Interfaces.Repositories;
 
 public interface IRepository<T> where T : class
