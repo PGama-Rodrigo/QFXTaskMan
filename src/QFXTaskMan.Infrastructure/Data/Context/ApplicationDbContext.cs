@@ -3,16 +3,16 @@ using QFXTaskMan.Core.Models;
 
 namespace QFXTaskMan.Infrastructure.Data.Context;
 
-public class TaskManagementDbContext : DbContext
+public class ApplicationDbContext : DbContext
 {
-    public TaskManagementDbContext(DbContextOptions<TaskManagementDbContext> options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
     }
     
     public DbSet<Organization> Organizations { get; set; }
     public DbSet<Project> Projects { get; set; }
-    public DbSet<QFXTaskMan.Core.Models.Task> Tasks { get; set; }
+    public DbSet<Core.Models.Task> Tasks { get; set; }
     public DbSet<User> Users { get; set; }
     public DbSet<OrganizationUser> OrganizationsUsers { get; set; }
     public DbSet<TaskUser> TasksUsers { get; set; }

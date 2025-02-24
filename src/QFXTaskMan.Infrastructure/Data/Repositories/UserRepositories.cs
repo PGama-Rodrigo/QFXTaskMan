@@ -1,7 +1,9 @@
+using Microsoft.EntityFrameworkCore;
 using QFXTaskMan.Core.Interfaces.Repositories;
 using QFXTaskMan.Core.Models;
+using QFXTaskMan.Infrastructure.Data.Context;
 
-namespace QFXTaskMan.Infrastructure.Services;
+namespace QFXTaskMan.Infrastructure.Data.Repositories;
 
 public class UserRepository : IUserRepository
 {
@@ -14,9 +16,8 @@ public class UserRepository : IUserRepository
 
     public async Task<User> GetByIdAsync(Guid id)
     {
-        return await _context.Users
-            .Where(u => !u.Deleted)  // Only non-deleted
-            .FirstOrDefaultAsync(u => u.Id == id);
+        return await _context.Users.FindAsync(id) ?? 
+            throw new Exception("User not found");
     }
 
     public async Task<IEnumerable<User>> GetAllAsync()
@@ -55,7 +56,7 @@ public class UserRepository : IUserRepository
     public async Task<IEnumerable<User>> GetByOrganizationAsync(Guid organizationId)
     {
         return await _context.OrganizationsUsers
-            .Where(ou => !ou.Deleted && !ou.User.Deleted)  // Check both relations
+            .Where(ou => !ou.User.Deleted)  // Check both relations
             .Where(ou => ou.OrganizationId == organizationId)
             .Select(ou => ou.User)
             .ToListAsync();
@@ -64,13 +65,14 @@ public class UserRepository : IUserRepository
     public async Task<IEnumerable<User>> GetByTaskAsync(Guid taskId)
     {
         return await _context.TasksUsers
-            .Where(tu => !tu.Deleted && !tu.User.Deleted)  // Check both relations
+            .Where(tu => !tu.User.Deleted)  // Check both relations
             .Where(tu => tu.TaskId == taskId)
             .Select(tu => tu.User)
             .ToListAsync();
     }
-}
 
-internal class ApplicationDbContext
-{
+    public async Task<bool> ExistAsync(Guid id)
+    {
+        return await _context.Users.AnyAsync(u => u.Id == id);
+    }
 }
