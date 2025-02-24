@@ -121,6 +121,6 @@ public static class ObjectComparer
         resultBefore += "}";
         resultAfter += "}";
 
-        return new string[] { resultBefore, resultAfter };
+        return [resultBefore, resultAfter];
     }
 }
