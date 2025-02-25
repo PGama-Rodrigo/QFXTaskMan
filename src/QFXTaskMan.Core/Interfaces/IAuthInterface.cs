@@ -4,6 +4,6 @@ namespace QFXTaskMan.Core.Interfaces;
 
 public interface IAuthService
 {
-    string Authenticate(string username, string password);
-    User Register(User user, string password);
+    Task <string> Authenticate(string username, string password);
+    Task <User> Register(User user, string password);
 }
