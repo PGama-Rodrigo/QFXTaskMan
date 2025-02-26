@@ -2,18 +2,18 @@ namespace QFXTaskMan.Core.Models.Static;
 
 public static class ObjectComparer
 {
-    public static string[] CompareAndExport<T>(T before, T after, string prefix = "") where T : class
+    public static string[] CompareAndExport<T>(T? before, T? after, string prefix = "") where T : class
     {
         var diffs = CompareObjects(before, after, prefix);
         return ExportDifferencesToJson(diffs);
     }
 
-    private static Dictionary<string, (object Before, object After)> CompareObjects<T>(T before, T after, string prefix = "") 
+    private static Dictionary<string, (object? Before, object? After)> CompareObjects<T>(T? before, T? after, string prefix = "") 
         where T : class
     {
-        var differences = new Dictionary<string, (object Before, object After)>();
+        var differences = new Dictionary<string, (object? Before, object? After)>();
         
-        if (before == null || after == null)
+        if (before == null && after == null)
             throw new ArgumentNullException("Objects cannot be null");
             
         var properties = typeof(T).GetProperties();
@@ -62,7 +62,7 @@ public static class ObjectComparer
         return differences;
     }
 
-    private static void CompareCollections(List<object> beforeList, List<object> afterList, string propertyName, Dictionary<string, (object Before, object After)> differences)
+    private static void CompareCollections(List<object> beforeList, List<object> afterList, string propertyName, Dictionary<string, (object? Before, object? After)> differences)
     {
         // Find items that were added
         var addedItems = afterList.Where(a => !beforeList.Any(b => 
@@ -82,13 +82,13 @@ public static class ObjectComparer
             .ToList();
 
         // Add differences for collections
-        if (addedItems.Any())
+        if (addedItems.Count != 0)
             differences.Add($"{propertyName}.Added", (null, addedItems));
             
-        if (removedItems.Any())
+        if (removedItems.Count != 0)
             differences.Add($"{propertyName}.Removed", (removedItems, null));
             
-        if (modifiedItems.Any())
+        if (modifiedItems.Count != 0)
             differences.Add($"{propertyName}.Modified", 
                 (modifiedItems.Select(m => m.Before).ToList(), 
                  modifiedItems.Select(m => m.After).ToList()));
@@ -101,7 +101,7 @@ public static class ObjectComparer
         return idProperty?.GetValue(obj) ?? obj;
     }
 
-    private static string[] ExportDifferencesToJson(Dictionary<string, (object Before, object After)> differences)
+    private static string[] ExportDifferencesToJson(Dictionary<string, (object? Before, object? After)> differences)
     {
         string resultBefore = "{";
         string resultAfter = "{";

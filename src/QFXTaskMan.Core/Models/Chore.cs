@@ -3,7 +3,7 @@ using QFXTaskMan.Core.Enumerables;
 
 namespace QFXTaskMan.Core.Models;
 
-public sealed class Chore : BaseClass
+public sealed class Chore : BaseModel
 {
     public Guid? ParentId { get; set; }
 

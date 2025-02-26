@@ -3,7 +3,7 @@ using QFXTaskMan.Core.Enumerables;
 
 namespace QFXTaskMan.Core.Models;
 
-public abstract class BaseClass
+public abstract class BaseModel
 {
     public Guid Id { get; set; } = new Guid();        
     public bool Deleted { get; set; } = false;

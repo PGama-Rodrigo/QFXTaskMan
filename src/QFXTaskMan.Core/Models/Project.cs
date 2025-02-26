@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QFXTaskMan.Core.Models;
 
-public sealed class Project : BaseClass    
+public sealed class Project : BaseModel    
 {
     public Project(string name, string description, DateTime? dueDate, Guid ownerId)
     {

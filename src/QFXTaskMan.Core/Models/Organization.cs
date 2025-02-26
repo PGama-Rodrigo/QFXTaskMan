@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace QFXTaskMan.Core.Models;
 
-public sealed class Organization : BaseClass
+public sealed class Organization : BaseModel
 {
     public Organization()
     {
