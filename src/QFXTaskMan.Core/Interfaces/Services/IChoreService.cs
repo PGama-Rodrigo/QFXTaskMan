@@ -4,6 +4,6 @@ namespace QFXTaskMan.Core.Interfaces.Services;
 
 public interface IChoreService : IBaseService<ChoreDTO>
 {
-    Task<IEnumerable<ChoreDTO>> GetByProjectAsync(Guid projectId);
-    Task<IEnumerable<ChoreDTO>> GetByUserAsync(Guid userId);
+    Task<IEnumerable<ChoreDTO>> GetAllByProjectAsync(Guid projectId);
+    Task<IEnumerable<ChoreDTO>> GetAllByUserAsync(Guid userId);
 }

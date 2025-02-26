@@ -1,12 +1,9 @@
+using QFXTaskMan.Core.Models.DTO;
+
 namespace QFXTaskMan.Core.Interfaces.Services;
 
-public interface IUserService
+public interface IUserService : IBaseService<UserDTO>
 {
-    Task<UserDto> GetByIdAsync(Guid id);
-    Task<IEnumerable<UserDto>> GetAllAsync();
-    Task<UserDto> CreateAsync(CreateUserDto userDto);
-    Task UpdateAsync(Guid id, UpdateUserDto userDto);
-    Task DeleteAsync(Guid id);
-    Task<IEnumerable<UserDto>> GetByOrganizationAsync(Guid organizationId);
-    Task<IEnumerable<UserDto>> GetByTaskAsync(Guid taskId);
+    Task<IEnumerable<UserDTO>> GetAllByOrganizationAsync(Guid organizationId);
+    Task<IEnumerable<UserDTO>> GetAllByTaskAsync(Guid taskId);
 }

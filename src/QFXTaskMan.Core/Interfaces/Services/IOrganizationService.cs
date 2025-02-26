@@ -4,5 +4,5 @@ namespace QFXTaskMan.Core.Interfaces.Services;
 
 public interface IOrganizationService : IBaseService<OrganizationDTO>
 {
-    Task<IEnumerable<OrganizationDTO>> GetByUserAsync(Guid userId);
+    Task<IEnumerable<OrganizationDTO>> GetAllByUserAsync(Guid userId);
 }
