@@ -8,7 +8,7 @@ public sealed class OrganizationUser
 
     public Guid UserId { get; set; }
 
-    public EOrganizationUserLevel Level { get; set; } = EOrganizationUserLevel.Mid;
+    public EOrganizationUserLevel Level { get; set; } = EOrganizationUserLevel.Application;
 
     public required Organization Organization { get; set; }
 

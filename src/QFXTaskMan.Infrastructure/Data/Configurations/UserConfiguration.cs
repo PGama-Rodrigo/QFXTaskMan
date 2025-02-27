@@ -18,9 +18,9 @@ public sealed class UserConfiguration : IEntityTypeConfiguration<User>
             .HasColumnType("nvarchar(max)");
 
         // Relationships
-        b.HasMany(u => u.OwnedProjects)
-            .WithOne(p => p.Owner)
-            .HasForeignKey(p => p.OwnerId)
+        b.HasMany(u => u.AssignedProjects)
+            .WithOne(p => p.User)
+            .HasForeignKey(p => p.UserId)
             .OnDelete(DeleteBehavior.Restrict);
 
         b.HasMany(u => u.Organizations)

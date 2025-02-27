@@ -10,12 +10,13 @@ public sealed class ApplicationDbContext : DbContext
     {
     }
     
-    public DbSet<Organization> Organizations { get; set; }
-    public DbSet<Project> Projects { get; set; }
     public DbSet<Chore> Chores { get; set; }
-    public DbSet<User> Users { get; set; }
-    public DbSet<OrganizationUser> OrganizationsUsers { get; set; }
     public DbSet<ChoreUser> ChoresUsers { get; set; }
+    public DbSet<Organization> Organizations { get; set; }
+    public DbSet<OrganizationUser> OrganizationsUsers { get; set; }
+    public DbSet<Project> Projects { get; set; }
+    public DbSet<ProjectUser> ProjectsUsers { get; set; }
+    public DbSet<User> Users { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

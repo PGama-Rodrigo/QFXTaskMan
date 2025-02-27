@@ -31,7 +31,7 @@ public sealed class User : BaseModel
     public string PasswordHash { get; set; } = string.Empty;        
     #endregion
 
-    public ICollection<Project>? OwnedProjects { get; set; }
+    public ICollection<ProjectUser>? AssignedProjects { get; set; }
     public ICollection<ChoreUser>? AssignedChores { get; set; }
     public ICollection<OrganizationUser>? Organizations { get; set; }
 

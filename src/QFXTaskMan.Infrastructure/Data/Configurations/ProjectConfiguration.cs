@@ -18,9 +18,9 @@ public sealed class ProjectConfiguration : IEntityTypeConfiguration<Project>
             .HasColumnType("nvarchar(max)");
 
         // Relationships
-        b.HasOne(p => p.Owner)
-            .WithMany(u => u.OwnedProjects)
-            .HasForeignKey(p => p.OwnerId)
+        b.HasMany(p => p.Team)
+            .WithOne(u => u.Project)
+            .HasForeignKey(p => p.ProjectId)
             .OnDelete(DeleteBehavior.Restrict);
 
         b.HasOne(p => p.Organization)

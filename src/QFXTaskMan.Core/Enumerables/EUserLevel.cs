@@ -14,6 +14,7 @@ namespace QFXTaskMan.Core.Enumerables;
 /// </list>
 /// <item>List of user levels:</item>
 /// <list type="number">
+/// <item>Application: No access. Waiting for approval from a Manager or above to get into the organization.</item>
 /// <item>Intern: The lowest level of the organization.</item>
 /// <item>Junior: The second lowest level of the organization.</item>
 /// <item>Mid: The middle level of the organization.</item>
@@ -27,6 +28,7 @@ namespace QFXTaskMan.Core.Enumerables;
 /// </remarks>
 public enum EOrganizationUserLevel : byte
 {
+    Application = 0,
     Intern = 1,
     Junior = 2,
     Mid = 3,
@@ -39,7 +41,7 @@ public enum EOrganizationUserLevel : byte
 }
 
 /// <summary>
-/// Represents the user level in a task.
+/// Represents the user level in a project or task.
 /// </summary>
 /// <remarks>
 /// <list type="number">

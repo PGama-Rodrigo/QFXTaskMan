@@ -4,12 +4,11 @@ namespace QFXTaskMan.Core.Models;
 
 public sealed class Project : BaseModel    
 {
-    public Project(string name, string description, DateTime? dueDate, Guid ownerId)
+    public Project(string name, string description, DateTime? dueDate)
     {
         Name = name;
         Description = description;
         DueDate = dueDate;
-        OwnerId = ownerId;
     }
 
     [Required(ErrorMessage = "{0} is required"), MaxLength(200, ErrorMessage = "{0} cannot be longer than 200 characters")]
@@ -20,11 +19,11 @@ public sealed class Project : BaseModel
     public DateTime? DueDate { get; set; }
     
     // Foreign keys
-    public Guid OwnerId { get; set; }
     public Guid OrganizationId { get; set; }
     
     // Navigation properties
     public required Organization Organization { get; set; }
-    public required User Owner { get; set; }
+    public ICollection<ProjectUser>? Team { get; set; }
+
     public ICollection<Chore>? Chores { get; set; }
 }
