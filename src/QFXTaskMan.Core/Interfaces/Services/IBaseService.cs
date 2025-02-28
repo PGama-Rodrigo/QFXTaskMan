@@ -8,4 +8,6 @@ public interface IBaseService<T> where T : class
     Task UpdateAsync(Guid id, T entity);
     Task DeleteAsync(Guid id);
     Task<bool> ExistAsync(Guid id);
+    Task<List<T>> GetActivitiesAsync();
+    Task<string> AddLogAsync(T model, object? before, object? after);
 }
